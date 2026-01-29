@@ -1,12 +1,11 @@
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('RenderParagraph.computeLineMetrics returns valid metrics', () {
-    const String text = 'Hello world!\nThis is line two.';
+    const text = 'Hello world!\nThis is line two.';
 
-    final RenderParagraph paragraph = RenderParagraph(
+    final paragraph = RenderParagraph(
       const TextSpan(text: text),
       textDirection: TextDirection.ltr,
     );
@@ -17,10 +16,11 @@ void main() {
 
     expect(metrics, isNotEmpty);
 
-    for (final LineMetrics m in metrics) {
+    for (final m in metrics) {
       expect(m.lineNumber, greaterThanOrEqualTo(0));
       expect(m.width, greaterThan(0));
       expect(m.height, greaterThan(0));
+      expect(m.baseline, greaterThanOrEqualTo(0));
     }
   });
 }
