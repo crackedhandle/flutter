@@ -47,7 +47,7 @@ runs them, run `dart dev/bots/test.dart` and `dart --enable-asserts dev/bots/ana
 
 ### Organizing test files
 
-Avoid creating overly large test files that contain many unrelated test cases.
+Avoid creating overly large test files that contain many unrelated test cases.  
 Instead, organize tests into smaller files grouped by feature, widget, or behavior.
 
 Splitting large test files has several benefits:
@@ -56,6 +56,26 @@ Splitting large test files has several benefits:
 - Navigation
 - Maintainability
 - Reviewability for contributors
+
+#### Naming conventions and examples
+
+Instead of keeping everything in a single file like:
+
+- `button_test.dart`
+
+that includes layout, semantics, and interaction tests, it can be split into:
+
+- `button_layout_test.dart`
+- `button_semantics_test.dart`
+- `button_interaction_test.dart`
+
+Or group tests by behavior:
+
+- `navigator_push_test.dart`
+- `navigator_pop_test.dart`
+- `navigator_transition_test.dart`
+
+The goal is to keep each test file focused on a single feature or behavior so it remains easier to understand, review, and maintain over time.
 
 ### Locally built engines
 
