@@ -47,8 +47,9 @@ runs them, run `dart dev/bots/test.dart` and `dart --enable-asserts dev/bots/ana
 
 ### Organizing test files
 
-Avoid creating overly large test files that contain many unrelated test cases.  
-Instead, organize tests into smaller files grouped by feature, widget, or behavior.
+Organize tests into smaller, focused files grouped by feature, widget, or behavior, rather than creating large files with many unrelated test cases.
+
+This approach aligns with the Flutter style guide's principle to [prefer more test files and avoid long test files](../Style-guide-for-Flutter-repo.md#prefer-more-test-files-avoid-long-test-files).
 
 Splitting large test files has several benefits:
 
