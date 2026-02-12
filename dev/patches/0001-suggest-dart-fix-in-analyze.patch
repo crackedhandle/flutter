@@ -1,0 +1,15 @@
+﻿*** Begin Patch
+*** Add File: dev/notes/README-suggest-dart-fix.md
++Proposal: suggest running 'dart fix --apply' from flutter analyze
++
++This directory contains:
++- flutter_analyze_dart_fix_helper.dart : dev helper to demonstrate behavior
++- 0001-suggest-dart-fix-in-analyze.patch : a suggested unified diff to modify packages/flutter_tools
++
++The patch is a proposal and may need to be adapted by maintainers to fit coding guidelines and tests.
++
++Rationale:
++ - Improve UX: when lutter analyze finds issues that dart fix can resolve, suggest dart fix --apply.
++ - Respect machine output and --watch modes.
++
+*** End Patch
