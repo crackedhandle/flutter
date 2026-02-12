@@ -34,7 +34,8 @@ void main() {
 
     expect(
       AnalyzeBase.generateErrorsMessage(issueCount: 3, issueDiff: 2, files: 1, seconds: '0.1'),
-      '3 issues found. (2 new) • analyzed 1 file (ran in 0.1s)',
+      '3 issues found. (2 new) • analyzed 1 file (ran in 0.1s)\n\n'
+      'Run `dart fix --apply` to automatically fix some issues.',
     );
   });
 

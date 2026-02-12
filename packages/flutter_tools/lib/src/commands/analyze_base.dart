@@ -108,23 +108,29 @@ abstract class AnalyzeBase {
     final errorsMessage = StringBuffer(
       issueCount > 0 ? '$issueCount ${pluralize('issue', issueCount)} found.' : 'No issues found!',
     );
-
-    // Only [AnalyzeContinuously] has issueDiff message.
-    if (issueDiff != null) {
-      if (issueDiff > 0) {
-        errorsMessage.write(' ($issueDiff new)');
-      } else if (issueDiff < 0) {
-        errorsMessage.write(' (${-issueDiff} fixed)');
-      }
-    }
-
-    // Only [AnalyzeContinuously] has files message.
-    if (files != null) {
-      errorsMessage.write(' • analyzed $files ${pluralize('file', files)}');
-    }
-    errorsMessage.write(' (ran in ${seconds}s)');
-    return errorsMessage.toString();
+// Only [AnalyzeContinuously] has issueDiff message.
+if (issueDiff != null) {
+  if (issueDiff > 0) {
+    errorsMessage.write(' ($issueDiff new)');
+  } else if (issueDiff < 0) {
+    errorsMessage.write(' (${-issueDiff} fixed)');
   }
+}
+
+// Only [AnalyzeContinuously] has files message.
+if (files != null) {
+  errorsMessage.write(' • analyzed $files ${pluralize('file', files)}');
+}
+
+errorsMessage.write(' (ran in ${seconds}s)');
+
+if (issueCount > 0) {
+  errorsMessage.write(
+    '\nRun `dart fix --apply` to automatically fix some issues.',
+  );
+}
+
+return errorsMessage.toString();
 }
 
 class PackageDependency {

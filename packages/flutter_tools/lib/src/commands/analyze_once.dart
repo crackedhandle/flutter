@@ -145,10 +145,14 @@ class AnalyzeOnce extends AnalyzeBase {
       seconds: seconds,
     );
 
-    if (errorCount > 0) {
+   if (errorCount > 0) {
       logger.printStatus('');
-      throwToolExit(errorsMessage, exitCode: _isFatal(errors) ? 1 : 0);
-    }
+      throwToolExit(
+      errorsMessage,
+      exitCode: _isFatal(errors) ? 1 : 0,
+     );
+   }
+
 
     if (argResults['congratulate'] as bool) {
       logger.printStatus(errorsMessage);
